@@ -6,6 +6,7 @@ import CartDrawer from '@/components/CartDrawer';
 import Home from '@/pages/Home';
 import Catalog from '@/pages/Catalog';
 import CourseDetail from '@/pages/CourseDetail';
+import CourseLanding from '@/pages/CourseLanding';
 import Checkout from '@/pages/Checkout';
 import OrderSuccess from '@/pages/OrderSuccess';
 
@@ -19,6 +20,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/courses" element={<Catalog />} />
             <Route path="/course/:id" element={<CourseDetail />} />
+            <Route path="/lp/typography-masters" element={<CourseLanding />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order-success" element={<OrderSuccess />} />
             <Route path="*" element={<Home />} />

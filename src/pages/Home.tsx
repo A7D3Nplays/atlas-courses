@@ -61,7 +61,7 @@ export default function Home() {
             <Link to="/courses" className="btn-pill bg-[#0a0a0a] text-white">
               Browse the catalog <ArrowRight size={15} />
             </Link>
-            <Link to={`/course/${heroCourse.id}`} className="link-underline label-caps text-[#0a0a0a]">
+            <Link to={`/lp/${heroCourse.id}`} className="link-underline label-caps text-[#0a0a0a]">
               Featured: {heroCourse.title.split(':')[0]}
             </Link>
           </div>
