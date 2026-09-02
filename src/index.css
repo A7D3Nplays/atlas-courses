@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ATLAS design system — warm sand canvas, ink text, signature blue, sales orange */
+    --sand: 30 7% 96%;            /* #f6f5f4 */
+    --ink: 0 0% 4%;               /* #0a0a0a */
+    --ink-soft: 0 0% 40%;         /* #666   */
+    --blue: 219 100% 47%;         /* #0057f3 */
+    --orange: 16 100% 50%;        /* #ff5102 */
+    --neon: 71 100% 50%;          /* #cdfe00 */
+    --paper: 0 0% 100%;
+
+    --background: var(--sand);
+    --foreground: var(--ink);
+    --card: var(--paper);
+    --card-foreground: var(--ink);
+    --popover: var(--paper);
+    --popover-foreground: var(--ink);
+    --primary: var(--ink);
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 5% 92%;
+    --secondary-foreground: var(--ink);
+    --muted: 30 5% 92%;
+    --muted-foreground: var(--ink-soft);
+    --accent: var(--blue);
+    --accent-foreground: 0 0% 100%;
+    --destructive: 16 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 30 4% 86%;
+    --input: 30 4% 80%;
+    --ring: var(--blue);
+    --radius: 0px;
+
+    /* motion */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.83, 0, 0.17, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .font-display {
+    font-family: 'Archivo', 'Inter', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  }
+  ::selection {
+    background: #0057f3;
+    color: #fff;
+  }
+}
+
+@layer components {
+  /* all-caps micro label — the editorial voice of the system */
+  .label-caps {
+    font-family: 'Archivo', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  /* numbered section marker, e.g. (01) */
+  .section-no {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  /* pill button from the warm-enterprise reference */
+  .btn-pill {
+    border-radius: 3.2rem;
+    padding: 0.85rem 1.7rem;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out), background 0.25s var(--ease-out);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    cursor: pointer;
+  }
+  .btn-pill:hover { opacity: 0.75; }
+  .btn-pill:active { transform: scale(0.97); }
+  /* cover crossfade — the only hover motion on cards */
+  .cover-stack { position: relative; overflow: hidden; }
+  .cover-stack .cover-b {
+    position: absolute; inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .cover-stack:hover .cover-b { opacity: 1; }
+  /* underline link */
+  .link-underline {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+  .link-underline:hover { text-decoration-thickness: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
